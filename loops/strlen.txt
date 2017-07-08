@@ -1,0 +1,17 @@
+Task: Strlen
+============
+Given a single line with no spaces, print out the length of the string.
+
+The string will be less than 1000 characters long.
+
+Sample Input
+============
+```
+asdf
+```
+
+Sample Output
+=============
+```
+4
+```

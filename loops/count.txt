@@ -1,0 +1,23 @@
+Task: Count
+===========
+Given a single integer, n, print out all the numbers starting from 1 up to it.
+
+0 <= n < 1000
+
+Sample Input
+============
+```
+7
+```
+
+Sample Output
+=============
+```
+1
+2
+3
+4
+5
+6
+7
+```

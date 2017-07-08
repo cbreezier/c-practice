@@ -1,0 +1,125 @@
+#!/bin/bash
+
+verbose=false
+custom=false
+
+function log {
+    message="$1"
+
+    if [ $verbose = true ]; then
+        echo "$message"
+    fi
+}
+
+function compare {
+    output="$1"
+    reference="$2"
+
+    if ! diff <(echo "$output") <(echo "$reference") &>/dev/null; then
+        if [ $verbose = true ]; then
+            log "Mismatch! Reference output:"
+            log "$reference"
+        fi
+    else
+        log "Match!"
+        passed=`expr $passed + 1`
+    fi
+}
+
+program="$1"
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <program> [--custom] [-v]"
+    exit 1
+fi
+
+if [ "$program" = "--custom" -o "$2" = "--custom" -o "$3" = "--custom" ]; then
+    custom=true
+fi
+if [ "$program" = "-v" -o "$2" = "-v" -o "$3" = "-v" ]; then
+    verbose=true
+fi
+
+# Find your implementation
+if ! [ -e "$program" ]; then
+    echo "Cannot find your executable: $program"
+    echo "Compiling from source with gcc -std=c99 -Wall -Werror -o $program $program.c"
+    if ! [ -e "$program.c" ]; then
+        echo "Cannot find source code: $program.c"
+        exit 1
+    fi
+
+    gcc -std=c99 -Wall -Werror -o "$program" "$program.c"
+fi
+
+# Find reference implementation
+if ! [ -e "reference_$program" ]; then
+    echo "Cannot find reference implementation reference_$program"
+    echo "Compiling from source with gcc -std=c99 -Wall -Werror -o reference_$program reference_$program.c"
+    if ! [ -e "reference_$program.c" ]; then
+        echo "Cannot find source code: reference_$program.c"
+        exit 1
+    fi
+
+    gcc -std=c99 -Wall -Werror -o "reference_$program" "reference_$program.c"
+fi
+
+
+# More than one argument means we're running custom tests
+if [ $custom = true ]; then
+    log "Executing custom test..."
+
+    echo "Please enter a custom file:"
+    input=`cat`
+
+    output=`echo "$input" | "./$program"`
+    log
+    log "Your output:"
+    log "$output"
+
+    reference=`echo "$input" | "./reference_$program"`
+
+    passed=0
+    compare "$output" "$reference"
+
+    echo
+    if [ $passed -eq 1 ]; then
+        echo "Passed!"
+    else
+        echo "Failed"
+    fi
+    echo
+else
+    if ! [ -d "test_$program" ]; then
+        echo "Cannot find test cases in test_$program/"
+        exit 1
+    fi
+    
+    i=0
+    passed=0
+    while [ -e "test_$program/in$i.txt" ]; do
+        log
+        log "Test #$i"
+        log "======="
+        log "Input:"
+        log "`cat test_$program/in$i.txt`"
+
+        log "Your output:"
+        output=`"./$program" < "test_$program/in$i.txt"`
+        log "$output"
+
+        reference=`"./reference_$program" < "test_$program/in$i.txt"`
+        compare "$output" "$reference"
+
+        i=`expr $i + 1`
+    done
+
+    echo
+    if [ $passed -eq $i ]; then
+        echo "All passed!"
+    else
+        echo "Failed "`expr $i - $passed`" tests"
+    fi
+    echo
+fi
+

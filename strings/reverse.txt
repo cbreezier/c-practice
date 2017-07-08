@@ -1,0 +1,17 @@
+Task: Reverse
+=============
+Given a single line of input, print out the line reversed.
+
+The line will be less than 1000 characters.
+
+Sample Input 1
+==============
+```
+This is a sentence.
+```
+
+Sample Output 1
+===============
+```
+.ecnetnes a si sihT
+```

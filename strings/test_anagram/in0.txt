@@ -1,0 +1,6 @@
+5
+cat
+abba
+A man, a plan, a canal - panama!
+A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal - Panama!
+something that is OBVIOUSLY not an anagram

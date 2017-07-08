@@ -1,0 +1,36 @@
+Task: Fizzbuzz
+==============
+The infamous fizzbuzz task has struck terror into the hearts of many. Some say that 99% of all computer science graduates fail to implement this task in interviews. Others say 50%. Needless to say, a large portion of programmers seem to fail at this task.
+
+You must solve fizzbuzz. The problem is as follows:
+
+Given a single integer, n, print out all the numbers from 1 up to n. However, if the number is divisible by 3, print "Fizz". If the number is divisible by 5, print "Buzz". If it's divisible by both, print "FizzBuzz".
+
+1 <= n <= 100
+
+Sample Input
+============
+```
+16
+```
+
+Sample Output
+=============
+```
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+16
+```

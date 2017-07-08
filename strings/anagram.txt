@@ -1,0 +1,29 @@
+Task: Anagram
+=============
+Find out if a string is an anagram of not. Each test case may contain multiple strings. Case should be ignored. All non-alphabetic characters should be ignored.
+
+The first line of input will be a number, n, the number of lines to test.
+
+0 < n < 1000
+Each line will be less than 1000 characters
+
+Sample Input 1
+==============
+```
+5
+cat
+abba
+A man, a plan, a canal - panama!
+A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal - Panama!
+something that is OBVIOUSLY not an anagram
+```
+
+Sample Output 1
+===============
+```
+no
+yes
+yes
+yes
+no
+```

@@ -1,0 +1,17 @@
+Task: Three Sort
+================
+Given three integers, print them out sorted in ascending order.
+
+-1000 < a, b, c < 1000
+
+Sample Input
+============
+```
+3 1 8
+```
+
+Sample Output
+=============
+```
+1 3 8
+```

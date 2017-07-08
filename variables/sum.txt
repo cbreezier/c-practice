@@ -1,0 +1,17 @@
+Task: Sum
+=========
+Given two integers, print out the sum.
+
+-1000 < a, b < 1000
+
+Sample Input
+============
+```
+1 2
+```
+
+Sample Output
+=============
+```
+3
+```

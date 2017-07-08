@@ -1,0 +1,29 @@
+Task: Hello
+===========
+Given a single line of input containing a name, print out "Hello" and the given name.
+
+The name will be less than 1000 characters and will NOT contain any spaces.
+
+Sample Input 1
+==============
+```
+bob
+```
+
+Sample Output 1
+===============
+```
+Hello bob
+```
+
+Sample Input 2
+===============
+```
+maryJane
+```
+
+Sample Output 2
+===============
+```
+Hello maryJane
+```

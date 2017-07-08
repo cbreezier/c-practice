@@ -1,0 +1,17 @@
+Task: Multiply
+==============
+Given two floating point numbers, print out the product to six decimal points.
+
+-1000 < a, b < 1000
+
+Sample Input
+============
+```
+1.7834 2.1245
+```
+
+Sample Output
+=============
+```
+3.788833
+```
