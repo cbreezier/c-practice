@@ -8,6 +8,8 @@ Each of the directories in the root of the repository represents a particular to
 
 `cd` into a directory to get started, and create a file for your solution with the same name as the task. For example, if you were solving `count` then you would read `count.txt` and write your solution in `count.c`.
 
+**Note: Avoid reading reference_\*.c until you've solved the problem yourself**
+
 To test your solution, use the `check` program supplied.
 
 ```
